@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Be Awesome - Font Awesome picker</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link href="//netdna.bootstrapcdn.com/font-awesome/3.0.2/css/font-awesome.css" rel="stylesheet">
+        <style>
+            /*box-sizing reset */
+            *, *:before, *:after { -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
+
+            .be_awesome_picker_container {
+                width: 330px; 
+                height: 300px; 
+                overflow: auto;
+                -webkit-box-shadow:  3px 3px 5px 1px rgba(0, 0, 0, .6);
+                box-shadow:  3px 3px 5px 1px rgba(0, 0, 0, .6);
+                position: absolute;
+            }
+            .be_awesome_picker_container div {
+                width: 100px; 
+                margin: 0;
+                float: left; 
+                text-align: center; 
+                cursor: pointer; 
+                border-radius: 5px;
+                padding: 5px;
+                overflow: hidden;
+            }
+
+            .be_awesome_picker_container div i {
+                font-size: 24px;
+                line-height: 60px;
+                -webkit-transition: all 500ms ease-in;
+                -moz-transition: all 500ms ease-in;
+                -o-transition: all 500ms ease-in;
+                -ms-transition: all 500ms ease-in;    
+                transition: all 500ms ease-in;
+            }
+            .be_awesome_picker_container div:hover i,
+            .be_awesome_picker_container div.active i{
+                font-size: 50px;
+            }
+            .be_awesome_picker_container div span {
+               font-family: Corbel, "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", "DejaVu Sans", "Bitstream Vera Sans", "Liberation Sans", Verdana, "Verdana Ref", sans-serif;
+                font-size: 12px;
+            }
+
+            .be_awesome_picker_container div:hover,
+             .be_awesome_picker_container div.active {
+                background: rgba(0, 0, 0, 0.2);
+            }
+
+
+
+        </style>
+    </head>
+    <body>
+        <h1>Be Awesome</h1>
+        <h2>A picker for Font Awesome classes</h2>
+        <p>Simply focus the input field to see the magic</p>
+
+        <form id="awesome_form">
+            <label for="awesome_text_field">Activate the text field to start it up</label>
+            <input type="text" class="font_awesome_picker" />
+            <button value="Not actually going anywhere" disabled="disabled">Not actually going anywhere</button>
+        </form>
+
+
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+        <script src="be_awesome.js"></script>
+
+        <script>
+            $(document).ready(function() {
+                $('.font_awesome_picker').beAwesome(); 
+            });
+        </script>
+
+    </body>
+</html>
