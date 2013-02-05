@@ -156,6 +156,11 @@ $('#fontelico_form .font_awesome_picker').beAwesome( {
 
         <script>
             $(document).ready(function() {
+                $('form').each(function() {
+                    $(this)[0].reset();
+                });
+                
+                
                 $('#awesome_form .font_awesome_picker').beAwesome(); 
                 
                 
