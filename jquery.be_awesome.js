@@ -23,17 +23,19 @@
         element = element;
 
         plugin.init = function() {
-            console.log($element);
+            //console.log($element);
             plugin.settings = $.extend({}, defaults, options);
             $element.on('click focus', function() {
                 plugin.show_popout();
             });
-            $(document).on('click', function(event) {
-                console.log( event.target, $element.is(event.target) );
-                if( ! $element.is(event.target) ) {
+            
+            /* Fix for now for when we click 'outside' of the input box->destroy */
+            $( document ).on( 'click' , function( event ) {
                 plugin.destroy_popout();
-                }
             });
+             $element.click( function( event ) {
+                event.stopPropagation(); 
+             });
 
         }
         
@@ -95,15 +97,7 @@
             hor_offset = -10,
             vert_offset = 24;
             
-            console.log(where = $element.offset(), 
-            where_x,
-            where_y,
-            width ,
-            height,
-            window_width,
-            window_height,
-            where_to_show_x,
-            where_to_show_y)
+          
             if( where_x + width < window_width ) {
                 where_to_show_x = where_x + hor_offset ;
             } else {
