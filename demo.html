@@ -4,10 +4,26 @@
         <title>Be Awesome - Font Awesome picker</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link href="//netdna.bootstrapcdn.com/font-awesome/3.0.2/css/font-awesome.css" rel="stylesheet">
+        <link href="http://weloveiconfonts.com/api/?family=fontelico|typicons" rel="stylesheet">
         <style>
+
+            /* fontelico */
+            [class*="fontelico-"]:before {
+                font-family: 'fontelico', sans-serif;
+            }
+            /* typicons */
+            [class*="typicons-"]:before {
+                font-family: 'Typicons', sans-serif;
+            }
+
+
             /*box-sizing reset */
             *, *:before, *:after { -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
 
+            body {
+                 font-family: Corbel, "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", "DejaVu Sans", "Bitstream Vera Sans", "Liberation Sans", Verdana, "Verdana Ref", sans-serif;
+            }
+            
             .be_awesome_picker_container {
                 width: 330px; 
                 height: 300px; 
@@ -15,6 +31,7 @@
                 -webkit-box-shadow:  3px 3px 5px 1px rgba(0, 0, 0, .6);
                 box-shadow:  3px 3px 5px 1px rgba(0, 0, 0, .6);
                 position: absolute;
+                background: white;
             }
             .be_awesome_picker_container div {
                 width: 100px; 
@@ -41,37 +58,121 @@
                 font-size: 50px;
             }
             .be_awesome_picker_container div span {
-               font-family: Corbel, "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", "DejaVu Sans", "Bitstream Vera Sans", "Liberation Sans", Verdana, "Verdana Ref", sans-serif;
+                font-family: Corbel, "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", "DejaVu Sans", "Bitstream Vera Sans", "Liberation Sans", Verdana, "Verdana Ref", sans-serif;
                 font-size: 12px;
+                white-space:nowrap;
             }
 
             .be_awesome_picker_container div:hover,
-             .be_awesome_picker_container div.active {
+            .be_awesome_picker_container div.active {
                 background: rgba(0, 0, 0, 0.2);
             }
 
 
 
+            .highlight {
+                background: yellowgreen;
+            }
+
+            .font_awesome_picker {
+                -webkit-transition: background 500ms ease-in;
+                -moz-transition: background 500ms ease-in;
+                -o-transition: background 500ms ease-in;
+                -ms-transition: background 500ms ease-in;    
+                transition: background 500ms ease-in;  
+            }
+
+
+            article {
+                width: 100%; 
+                max-width: 960px;
+                margin: 36px auto;
+                padding: 14px;
+                border-radius: 7px;
+                border: 1px solid black;
+            }
+
         </style>
     </head>
     <body>
-        <h1>Be Awesome</h1>
-        <h2>A picker for Font Awesome classes</h2>
-        <p>Simply focus the input field to see the magic</p>
+        <article>
+            <h1>Be Awesome</h1>
+            <h2>A picker for Font Awesome classes</h2>
+            <p>Simply focus the input field to see the magic</p>
+        </article>
 
-        <form id="awesome_form">
-            <label for="awesome_text_field">Activate the text field to start it up</label>
-            <input type="text" class="font_awesome_picker" />
-            <button value="Not actually going anywhere" disabled="disabled">Not actually going anywhere</button>
-        </form>
+        <article>
+            <h3>Defaults</h3>
+            <pre>
+&lt;script&gt;
+    $('#awesome_form .font_awesome_picker').beAwesome();
+&lt;/script&gt;
+            </pre>
+            <form id="awesome_form">
+                <label for="awesome_text_field">Activate the text field to start it up</label>
+                <input type="text" class="font_awesome_picker" />
+                <button value="Not actually going anywhere" disabled="disabled">Not actually going anywhere</button>
+            </form>
+        </article>
 
+        <article>
+            <h3>Using the fontelico font</h3>
+            <pre>
+&lt;script&gt;
+var fontelico_list = ['fontelico-emo-happy', 'fontelico-emo-wink', 'fontelico-emo-wink2', 'fontelico-emo-unhappy', 'fontelico-emo-sleep', 'fontelico-emo-thumbsup', 'fontelico-emo-devil', 'fontelico-emo-surprised', 'fontelico-emo-tongue', 'fontelico-emo-coffee', 'fontelico-emo-sunglasses', 'fontelico-emo-displeased', 'fontelico-emo-beer', 'fontelico-emo-grin', 'fontelico-emo-angry', 'fontelico-emo-saint', 'fontelico-emo-cry', 'fontelico-emo-shoot', 'fontelico-emo-squint', 'fontelico-emo-laugh', 'fontelico-spin1', 'fontelico-spin2', 'fontelico-spin3', 'fontelico-spin4', 'fontelico-spin5', 'fontelico-spin6', 'fontelico-firefox', 'fontelico-chrome', 'fontelico-opera', 'fontelico-ie' ];
+$('#fontelico_form .font_awesome_picker').beAwesome( {
+    font_classes: fontelico_list,
+    container_id: 'beAwesome_picker2'
+}); 
+&lt;/script&gt;
+            </pre>
+            <form id="fontelico_form">
+                <label for="fontelico_text_field">Activate the text field to start it up</label>
+                <input type="text" class="font_awesome_picker" />
+                <button value="Not actually going anywhere" disabled="disabled">Not actually going anywhere</button>
+            </form>       
+        </article>
+
+        <article>
+            <h3>Using the typicons font</h3>
+            <pre>
+&lt;script&gt;
+        var typicons_list = ['typicons-location', 'typicons-phone', 'typicons-home', 'typicons-camera', 'typicons-left', 'typicons-right', 'typicons-up', 'typicons-down', 'typicons-refresh', 'typicons-sync', 'typicons-loop', 'typicons-repeat', 'typicons-shuffle', 'typicons-rss', 'typicons-cog', 'typicons-spanner', 'typicons-barChart', 'typicons-pieChart', 'typicons-lineChart', 'typicons-views', 'typicons-zoomIn', 'typicons-zoomOut', 'typicons-export', 'typicons-user', 'typicons-group', 'typicons-microphone', 'typicons-globe', 'typicons-thumbsUp', 'typicons-thumbsDown', 'typicons-tag', 'typicons-tab', 'typicons-warning', 'typicons-tick', 'typicons-beta', 'typicons-unlock', 'typicons-lock', 'typicons-eject', 'typicons-move', 'typicons-expand', 'typicons-cancel', 'typicons-power', 'typicons-compass', 'typicons-radar', 'typicons-directions', 'typicons-pin', 'typicons-mute', 'typicons-volume', 'typicons-world', 'typicons-write', 'typicons-minus', 'typicons-equals', 'typicons-feed', 'typicons-batteryNone', 'typicons-batteryLow', 'typicons-batteryMid', 'typicons-batteryHigh', 'typicons-batteryPower', 'typicons-plus', 'typicons-times', 'typicons-next', 'typicons-previous', 'typicons-edit', 'typicons-cut', 'typicons-anchor', 'typicons-bookmark', 'typicons-music', 'typicons-puzzle', 'typicons-archive', 'typicons-mobile', 'typicons-brightness', 'typicons-flag', 'typicons-info', 'typicons-unknown', 'typicons-chat', 'typicons-mail', 'typicons-message', 'typicons-delete', 'typicons-backspace', 'typicons-infinity', 'typicons-key', 'typicons-time', 'typicons-grid', 'typicons-list', 'typicons-heart', 'typicons-star', 'typicons-back', 'typicons-forward' ];
+        $('#typicons_form .font_awesome_picker').beAwesome( {
+            font_classes: typicons_list,
+            container_id: 'beAwesome_picker3'
+        } );
+&lt;/script&gt;
+            </pre>
+            <form id="typicons_form">
+                <label for="typicons_text_field">Activate the text field to start it up</label>
+                <input type="text" class="font_awesome_picker" />
+                <button value="Not actually going anywhere" disabled="disabled">Not actually going anywhere</button>
+            </form>          
+        </article>
 
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
         <script src="be_awesome.js"></script>
 
         <script>
             $(document).ready(function() {
-                $('.font_awesome_picker').beAwesome(); 
+                $('#awesome_form .font_awesome_picker').beAwesome(); 
+                
+                
+                
+                var fontelico_list = ['fontelico-emo-happy', 'fontelico-emo-wink', 'fontelico-emo-wink2', 'fontelico-emo-unhappy', 'fontelico-emo-sleep', 'fontelico-emo-thumbsup', 'fontelico-emo-devil', 'fontelico-emo-surprised', 'fontelico-emo-tongue', 'fontelico-emo-coffee', 'fontelico-emo-sunglasses', 'fontelico-emo-displeased', 'fontelico-emo-beer', 'fontelico-emo-grin', 'fontelico-emo-angry', 'fontelico-emo-saint', 'fontelico-emo-cry', 'fontelico-emo-shoot', 'fontelico-emo-squint', 'fontelico-emo-laugh', 'fontelico-spin1', 'fontelico-spin2', 'fontelico-spin3', 'fontelico-spin4', 'fontelico-spin5', 'fontelico-spin6', 'fontelico-firefox', 'fontelico-chrome', 'fontelico-opera', 'fontelico-ie' ];
+                $('#fontelico_form .font_awesome_picker').beAwesome( {
+                    font_classes: fontelico_list,
+                    container_id: 'beAwesome_picker2'
+                } ); 
+                
+                
+                var typicons_list = ['typicons-location', 'typicons-phone', 'typicons-home', 'typicons-camera', 'typicons-left', 'typicons-right', 'typicons-up', 'typicons-down', 'typicons-refresh', 'typicons-sync', 'typicons-loop', 'typicons-repeat', 'typicons-shuffle', 'typicons-rss', 'typicons-cog', 'typicons-spanner', 'typicons-barChart', 'typicons-pieChart', 'typicons-lineChart', 'typicons-views', 'typicons-zoomIn', 'typicons-zoomOut', 'typicons-export', 'typicons-user', 'typicons-group', 'typicons-microphone', 'typicons-globe', 'typicons-thumbsUp', 'typicons-thumbsDown', 'typicons-tag', 'typicons-tab', 'typicons-warning', 'typicons-tick', 'typicons-beta', 'typicons-unlock', 'typicons-lock', 'typicons-eject', 'typicons-move', 'typicons-expand', 'typicons-cancel', 'typicons-power', 'typicons-compass', 'typicons-radar', 'typicons-directions', 'typicons-pin', 'typicons-mute', 'typicons-volume', 'typicons-world', 'typicons-write', 'typicons-minus', 'typicons-equals', 'typicons-feed', 'typicons-batteryNone', 'typicons-batteryLow', 'typicons-batteryMid', 'typicons-batteryHigh', 'typicons-batteryPower', 'typicons-plus', 'typicons-times', 'typicons-next', 'typicons-previous', 'typicons-edit', 'typicons-cut', 'typicons-anchor', 'typicons-bookmark', 'typicons-music', 'typicons-puzzle', 'typicons-archive', 'typicons-mobile', 'typicons-brightness', 'typicons-flag', 'typicons-info', 'typicons-unknown', 'typicons-chat', 'typicons-mail', 'typicons-message', 'typicons-delete', 'typicons-backspace', 'typicons-infinity', 'typicons-key', 'typicons-time', 'typicons-grid', 'typicons-list', 'typicons-heart', 'typicons-star', 'typicons-back', 'typicons-forward' ];
+                $('#typicons_form .font_awesome_picker').beAwesome( {
+                    font_classes: typicons_list,
+                    container_id: 'beAwesome_picker3'
+                } ); 
+                
             });
         </script>
 

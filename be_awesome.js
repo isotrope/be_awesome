@@ -23,9 +23,16 @@
         element = element;
 
         plugin.init = function() {
+            console.log($element);
             plugin.settings = $.extend({}, defaults, options);
-            $element.on('click', function() {
+            $element.on('click focus', function() {
                 plugin.show_popout();
+            });
+            $(document).on('click', function(event) {
+                console.log( event.target, $element.is(event.target) );
+                if( ! $element.is(event.target) ) {
+                plugin.destroy_popout();
+                }
             });
 
         }
@@ -46,7 +53,7 @@
         }
         
         plugin.show_popout = function() {
-            
+            //One already exists
             if( $('#' + plugin.settings.container_id ).length ) {
                 return false;
             }
@@ -59,12 +66,19 @@
             active_scroll();
             
             $( '#' + plugin.settings.container_id ).on( 'click', 'div', function() {
-                $element.val( $(this).text() ); 
-                $( '#' + plugin.settings.container_id ).fadeOut('fast', function() {
-                    $(this).remove();
-                });
+                $element.val( $(this).text() ).addClass('highlight'); 
+                setTimeout(function() {
+                    $element.removeClass("highlight");
+                }, 1500);
+               plugin.destroy_popout();
             });
             
+        }
+        
+        plugin.destroy_popout = function() {
+             $( '#' + plugin.settings.container_id ).fadeOut( 500 , function() {
+                    $(this).remove();
+                });
         }
         
         var where_to_show = function() {
