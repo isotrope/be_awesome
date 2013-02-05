@@ -3,6 +3,7 @@
     <head>
         <title>Be Awesome - Font Awesome picker</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link href="jquery.be_awesome.css" rel="stylesheet">
         <link href="//netdna.bootstrapcdn.com/font-awesome/3.0.2/css/font-awesome.css" rel="stylesheet">
         <link href="http://weloveiconfonts.com/api/?family=fontelico|typicons" rel="stylesheet">
         <style>
@@ -16,72 +17,9 @@
                 font-family: 'Typicons', sans-serif;
             }
 
-
-            /*box-sizing reset */
-            *, *:before, *:after { -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
-
             body {
-                 font-family: Corbel, "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", "DejaVu Sans", "Bitstream Vera Sans", "Liberation Sans", Verdana, "Verdana Ref", sans-serif;
-            }
-            
-            .be_awesome_picker_container {
-                width: 330px; 
-                height: 300px; 
-                overflow: auto;
-                -webkit-box-shadow:  3px 3px 5px 1px rgba(0, 0, 0, .6);
-                box-shadow:  3px 3px 5px 1px rgba(0, 0, 0, .6);
-                position: absolute;
-                background: white;
-            }
-            .be_awesome_picker_container div {
-                width: 100px; 
-                margin: 0;
-                float: left; 
-                text-align: center; 
-                cursor: pointer; 
-                border-radius: 5px;
-                padding: 5px;
-                overflow: hidden;
-            }
-
-            .be_awesome_picker_container div i {
-                font-size: 24px;
-                line-height: 60px;
-                -webkit-transition: all 500ms ease-in;
-                -moz-transition: all 500ms ease-in;
-                -o-transition: all 500ms ease-in;
-                -ms-transition: all 500ms ease-in;    
-                transition: all 500ms ease-in;
-            }
-            .be_awesome_picker_container div:hover i,
-            .be_awesome_picker_container div.active i{
-                font-size: 50px;
-            }
-            .be_awesome_picker_container div span {
                 font-family: Corbel, "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", "DejaVu Sans", "Bitstream Vera Sans", "Liberation Sans", Verdana, "Verdana Ref", sans-serif;
-                font-size: 12px;
-                white-space:nowrap;
             }
-
-            .be_awesome_picker_container div:hover,
-            .be_awesome_picker_container div.active {
-                background: rgba(0, 0, 0, 0.2);
-            }
-
-
-
-            .highlight {
-                background: yellowgreen;
-            }
-
-            .font_awesome_picker {
-                -webkit-transition: background 500ms ease-in;
-                -moz-transition: background 500ms ease-in;
-                -o-transition: background 500ms ease-in;
-                -ms-transition: background 500ms ease-in;    
-                transition: background 500ms ease-in;  
-            }
-
 
             article {
                 width: 100%; 
@@ -152,7 +90,7 @@ $('#fontelico_form .font_awesome_picker').beAwesome( {
         </article>
 
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-        <script src="be_awesome.js"></script>
+        <script src="jquery.be_awesome.js"></script>
 
         <script>
             $(document).ready(function() {
